@@ -1,4 +1,5 @@
 $count = 0
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 do {
     $count++
     Write-Output "[$env:STAGE_NAME] Starting container [Attempt: $count]"
