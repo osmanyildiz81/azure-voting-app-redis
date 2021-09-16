@@ -49,5 +49,18 @@ pipeline {
             """)
          }
       }
+        stage('Push container') {
+         steps {
+            echo "workspace is $WORKSPACE"
+            dir("$WORKSPACE/azure-vote"){
+               script {
+                  docker.withRegistry('https://hub.docker.com/','hub'){
+                     def image = docker.build('mydocker4bd54dd1/jenkins:latest')
+                     image.push()
+                  }
+               }
+            }
+         }
+      }
    }
 }
