@@ -12,7 +12,7 @@ do {
         Start-Sleep -Seconds 1
     }
     
-} until ($started -or ($count -eq 3))
+} until ($started -or ($count -eq 30))
 
 if (!$started) {
     exit 1
